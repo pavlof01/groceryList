@@ -7,10 +7,12 @@ import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 
 import MainList from './screens/MainList';
 import AddProduct from './screens/AddProduct';
+import ListPage from './screens/ListItemPage';
 
 type RootStackParamList = {
   List: undefined;
   CreateListItem: undefined;
+  ListPage: {id: string};
 };
 
 declare global {
@@ -30,6 +32,11 @@ const RootNavigation = memo(() => {
         <RootStack.Screen
           name="CreateListItem"
           component={AddProduct}
+          options={{...TransitionPresets.ModalPresentationIOS}}
+        />
+        <RootStack.Screen
+          name="ListPage"
+          component={ListPage}
           options={{...TransitionPresets.ModalPresentationIOS}}
         />
       </RootStack.Navigator>
